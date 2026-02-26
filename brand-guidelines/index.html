@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meaningful Planet – Brand Guidelines v1.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss: #032D10;
+    --pine: #256751;
+    --sapling: #D2FF85;
+    --mist: #C4F5DC;
+    --chalk: #F8F3EC;
+    --clay: #D98042;
+    --grove: #021B11;
+    --white: #FFFFFF;
+    --body-text: #3A3A3A;
+    --muted-text: #555555;
+    --light-border: #E2E8DF;
+    --subtle-bg: #F8F9F5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--body-text);
+    background: var(--chalk);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* NAV */
+  .brand-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--moss); border-bottom: 3px solid; border-image: linear-gradient(90deg, var(--pine) 0%, var(--sapling) 50%, var(--pine) 100%) 1; }
+  .brand-nav-inner { max-width: 1200px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .brand-nav-title { font-size: 13px; font-weight: 700; color: var(--mist); letter-spacing: 0.08em; text-transform: uppercase; }
+  .brand-nav-version { font-size: 11px; color: var(--pine); font-weight: 500; letter-spacing: 0.04em; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 12px; color: rgba(196,245,220,0.7); text-decoration: none; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--sapling); }
+
+  /* HERO */
+  .hero { background: var(--moss); padding: 140px 32px 80px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content:''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,103,81,0.3) 0%, transparent 70%); pointer-events: none; }
+  .hero::after { content:''; position: absolute; bottom: -100px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(210,255,133,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero h1 { font-size: 48px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; position: relative; }
+  .hero h1 span { color: var(--sapling); }
+  .hero p { font-size: 18px; color: rgba(196,245,220,0.7); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; position: relative; }
+  .hero-meta { display: inline-flex; gap: 32px; padding: 14px 28px; background: rgba(37,103,81,0.25); border-radius: 10px; border: 1px solid rgba(37,103,81,0.4); position: relative; }
+  .hero-meta-item { font-size: 12px; color: var(--mist); font-weight: 500; }
+  .hero-meta-item strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(196,245,220,0.5); margin-bottom: 2px; font-weight: 600; }
+
+  /* SECTIONS */
+  .section { max-width: 1200px; margin: 0 auto; padding: 80px 32px; }
+  .section-header { margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--light-border); }
+  .section-number { font-size: 12px; font-weight: 700; color: var(--pine); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .section-title { font-size: 36px; font-weight: 800; color: var(--moss); letter-spacing: -0.02em; line-height: 1.2; }
+  .section-subtitle { font-size: 16px; color: var(--muted-text); margin-top: 10px; max-width: 640px; line-height: 1.6; }
+
+  /* CONTENT */
+  .content-block { margin-bottom: 56px; }
+  .content-block:last-child { margin-bottom: 0; }
+  .block-title { font-size: 22px; font-weight: 700; color: var(--moss); margin-bottom: 16px; line-height: 1.3; }
+  .block-text { font-size: 15px; color: var(--body-text); line-height: 1.7; max-width: 720px; }
+  .block-text + .block-text { margin-top: 12px; }
+
+  /* LOGO */
+  .logo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 32px; }
+  .logo-card { border-radius: 16px; padding: 48px 32px; display: flex; align-items: center; justify-content: center; min-height: 200px; border: 1px solid var(--light-border); position: relative; }
+  .logo-card-label { position: absolute; top: 14px; left: 18px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 6px; }
+  .logo-card svg { max-width: 180px; height: auto; }
+  .lc-light { background: var(--white); }
+  .lc-light .logo-card-label { background: var(--subtle-bg); color: var(--pine); }
+  .lc-dark { background: var(--moss); }
+  .lc-dark .logo-card-label { background: rgba(37,103,81,0.4); color: var(--mist); }
+  .lc-chalk { background: var(--chalk); }
+  .lc-chalk .logo-card-label { background: rgba(217,128,66,0.15); color: var(--clay); }
+  .lc-grove { background: var(--grove); }
+  .lc-grove .logo-card-label { background: rgba(210,255,133,0.15); color: var(--sapling); }
+
+  /* COLOUR */
+  .colour-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 16px; margin-top: 32px; }
+  .colour-card { border-radius: 14px; overflow: hidden; border: 1px solid var(--light-border); background: var(--white); }
+  .colour-swatch { height: 100px; }
+  .colour-info { padding: 14px 16px; }
+  .colour-name { font-size: 15px; font-weight: 700; color: var(--moss); margin-bottom: 4px; }
+  .colour-hex { font-size: 13px; font-family: 'SF Mono','Fira Code','Consolas', monospace; color: var(--muted-text); font-weight: 500; }
+  .colour-usage { font-size: 12px; color: var(--muted-text); margin-top: 6px; line-height: 1.5; }
+
+  /* TABLES */
+  .roles-table { width: 100%; border-collapse: collapse; margin-top: 32px; font-size: 14px; }
+  .roles-table th { text-align: left; padding: 12px 16px; background: var(--subtle-bg); color: var(--moss); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid var(--light-border); }
+  .roles-table td { padding: 14px 16px; border-bottom: 1px solid var(--light-border); vertical-align: top; }
+  .roles-table tr:last-child td { border-bottom: none; }
+  .swatch-inline { display: inline-block; width: 16px; height: 16px; border-radius: 4px; vertical-align: middle; margin-right: 8px; border: 1px solid rgba(0,0,0,0.08); }
+
+  .ref-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; background: var(--white); border-radius: 14px; overflow: hidden; border: 1px solid var(--light-border); }
+  .ref-table th { text-align: left; padding: 14px 18px; background: var(--moss); color: var(--mist); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .ref-table td { padding: 12px 18px; border-bottom: 1px solid var(--light-border); vertical-align: top; line-height: 1.5; }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:nth-child(even) td { background: var(--subtle-bg); }
+
+  /* TYPE */
+  .type-specimen { background: var(--white); border: 1px solid var(--light-border); border-radius: 16px; padding: 48px; margin-top: 32px; }
+  .type-display { font-family: 'Figtree', sans-serif; color: var(--moss); margin-bottom: 8px; }
+  .type-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--pine); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .type-label::after { content:''; flex: 1; height: 1px; background: var(--light-border); }
+  .type-sample + .type-label { margin-top: 32px; }
+  .type-scale { display: grid; gap: 24px; margin-top: 32px; }
+  .type-scale-row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--light-border); }
+  .type-scale-row:last-child { border-bottom: none; }
+  .type-scale-meta { font-size: 12px; color: var(--muted-text); line-height: 1.6; }
+  .type-scale-meta strong { display: block; font-size: 13px; color: var(--moss); font-weight: 600; margin-bottom: 2px; }
+
+  /* RULES GRID */
+  .rules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 32px; }
+  .rule-card { background: var(--white); border: 1px solid var(--light-border); border-radius: 14px; padding: 28px; }
+  .rule-card.do { border-top: 3px solid var(--pine); }
+  .rule-card.dont { border-top: 3px solid #C44; }
+  .rule-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .rule-card.do .rule-label { color: var(--pine); }
+  .rule-card.dont .rule-label { color: #C44; }
+  .rule-example { font-size: 14px; color: var(--body-text); line-height: 1.7; }
+  .rule-example code { background: var(--subtle-bg); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono','Fira Code','Consolas', monospace; font-size: 13px; }
+
+  /* EXAMPLES */
+  .example-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+  .example-card { border-radius: 14px; overflow: hidden; border: 1px solid var(--light-border); }
+  .example-visual { padding: 32px; min-height: 120px; display: flex; align-items: center; justify-content: center; }
+  .example-caption { padding: 16px 20px; background: var(--white); border-top: 1px solid var(--light-border); font-size: 13px; color: var(--muted-text); line-height: 1.5; }
+  .example-caption strong { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .example-caption strong.do-label { color: var(--pine); }
+  .example-caption strong.dont-label { color: #C44; }
+
+  /* BUTTONS */
+  .btn-specimen { display: inline-flex; align-items: center; gap: 6px; padding: 13px 28px; border-radius: 8px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.01em; border: none; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: var(--moss); color: var(--white); }
+  .btn-accent { background: var(--sapling); color: var(--moss); }
+  .btn-secondary { background: var(--white); color: var(--moss); border: 1.5px solid var(--light-border); }
+
+  /* CALLOUT */
+  .callout { background: var(--subtle-bg); border: 1px solid var(--light-border); border-left: 4px solid var(--pine); border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 24px 0; font-size: 14px; line-height: 1.7; }
+  .callout strong { color: var(--moss); }
+  .callout-warning { border-left-color: var(--clay); background: #FEF7F0; }
+
+  /* PILLARS */
+  .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+  .pillar-card { background: var(--white); border: 1px solid var(--light-border); border-radius: 14px; padding: 28px; border-top: 3px solid var(--pine); }
+  .pillar-number { font-size: 11px; font-weight: 700; color: var(--pine); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .pillar-title { font-size: 16px; font-weight: 700; color: var(--moss); margin-bottom: 10px; line-height: 1.3; }
+  .pillar-desc { font-size: 13px; color: var(--muted-text); line-height: 1.6; }
+
+  /* PRINCIPLES */
+  .principles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+  .principle-card { background: var(--white); border: 1px solid var(--light-border); border-radius: 12px; padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .principle-choose { font-size: 14px; font-weight: 700; color: var(--pine); white-space: nowrap; min-width: 80px; }
+  .principle-over { font-size: 13px; color: var(--muted-text); line-height: 1.55; }
+  .principle-over em { font-style: normal; color: #999; font-weight: 500; }
+
+  /* GRADIENT */
+  .gradient-strip { height: 6px; border-radius: 3px; margin: 12px 0 8px; }
+
+  /* DIVIDER */
+  .brand-divider { height: 3px; background: linear-gradient(90deg, var(--pine) 0%, var(--sapling) 50%, var(--pine) 100%); border: none; margin: 0; }
+
+  /* WEBSITE PATTERN CARDS */
+  .pattern-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 32px; }
+  .pattern-card { background: var(--white); border: 1px solid var(--light-border); border-radius: 14px; overflow: hidden; }
+  .pattern-preview { padding: 24px; min-height: 140px; display: flex; align-items: center; justify-content: center; }
+  .pattern-info { padding: 18px 22px; border-top: 1px solid var(--light-border); }
+  .pattern-name { font-size: 14px; font-weight: 700; color: var(--moss); margin-bottom: 6px; }
+  .pattern-desc { font-size: 13px; color: var(--muted-text); line-height: 1.55; }
+
+  /* FOOTER */
+  .brand-footer { background: var(--grove); padding: 48px 32px; text-align: center; }
+  .brand-footer p { font-size: 13px; color: rgba(196,245,220,0.4); max-width: 480px; margin: 0 auto; line-height: 1.6; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 32px; }
+    .logo-grid, .rules-grid, .example-pair, .pattern-grid { grid-template-columns: 1fr; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .principles-grid { grid-template-columns: 1fr; }
+    .colour-grid { grid-template-columns: repeat(2, 1fr); }
+    .type-scale-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero-meta { flex-direction: column; gap: 12px; }
+    .section { padding: 48px 20px; }
+  }
+  @media print {
+    .brand-nav { position: relative; }
+    .section { padding: 40px 0; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="brand-nav">
+  <div class="brand-nav-inner">
+    <div>
+      <div class="brand-nav-title">Meaningful Planet – Brand Guidelines</div>
+      <div class="brand-nav-version">Version 1.1 · February 2026</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#brand-overview">Overview</a></li>
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#colour">Colour</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#voice">Voice & Tone</a></li>
+      <li><a href="#copy">Copy Rules</a></li>
+      <li><a href="#website">Website</a></li>
+      <li><a href="#applications">Applications</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>Meaningful Planet<br><span>Brand Guidelines</span></h1>
+  <p>The definitive reference for how we look, sound, and communicate – across every touchpoint, channel, and team.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><strong>Version</strong> 1.1</div>
+    <div class="hero-meta-item"><strong>Last Updated</strong> February 2026</div>
+    <div class="hero-meta-item"><strong>Applies To</strong> All channels</div>
+  </div>
+</header>
+
+<hr class="brand-divider">
+
+<!-- ===== 01. BRAND OVERVIEW ===== -->
+<section class="section" id="brand-overview">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Brand Overview</h2>
+    <p class="section-subtitle">Who we are, what we stand for, and the principles that guide every design and copy decision.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Our Vision</h3>
+    <p class="block-text" style="font-size: 20px; font-weight: 600; color: var(--moss); line-height: 1.5; max-width: 640px;">To build a world that works better.</p>
+    <p class="block-text" style="margin-top: 16px;">Smarter telecoms for a world that works better. Building a world that works better through radical clarity and proactive action.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Elevator Pitch</h3>
+    <div style="background: var(--white); border: 1px solid var(--light-border); border-left: 4px solid var(--sapling); border-radius: 0 14px 14px 0; padding: 24px 28px; margin-top: 8px;">
+      <p style="font-size: 15px; color: var(--moss); line-height: 1.7; font-weight: 500;">SMEs globally waste billions in telecoms spend due to black-box billing, inefficient platforms, and excessive charges. Meaningful Planet solves this with an intelligent telecoms management platform with bundled connectivity, using machine learning to deliver clarity, control, and proactive savings – with sustainability fully integrated into the model.</p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">What We Do</h3>
+    <p class="block-text">Meaningful Planet is an all-in-one mobile connectivity solution for businesses – combining mobile network, intelligent telecoms management platform, and sustainability into a single service. We give organisations complete visibility and control over their mobile estate. Costs come down, admin is simplified, and contracts finally work in the customer's favour.</p>
+    <p class="block-text">Every service also funds meaningful nature restoration projects across the UK, delivered with our partners, the regional Wildlife Trusts. With emissions tracking and offsetting built in as standard, we're a carbon-neutral network that delivers better for customers and the planet.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Who We Serve</h3>
+    <p class="block-text">Our sweet spot is SMEs managing mobile estates of up to approximately 1,500 SIMs. These are businesses large enough to have real telecoms complexity – multiple lines, varied data plans, ongoing cost management – but without dedicated telecoms departments or enterprise procurement processes.</p>
+    <p class="block-text">Primary users of the Milo platform include operations managers, IT leads, office managers, and finance teams who are responsible for telecoms alongside other duties. They need tools that are intuitive and efficient, not enterprise-grade complexity that requires specialist training. Secondary users include the business mobile end users themselves, who interact with their individual SIM details and account settings.</p>
+
+    <div class="callout" style="margin-top: 20px;">
+      <strong>Positioning note:</strong> We are not an enterprise provider. Our language, pricing structures, and product decisions should reflect SME needs and SME buying behaviour. Avoid enterprise-oriented framing like "enterprise-grade" in customer-facing materials. Internally, we may reference that we deliver enterprise-quality service at SME scale – but externally, lead with simplicity, clarity, and value.
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Product Vision</h3>
+    <p class="block-text" style="font-size: 16px; font-weight: 600; color: var(--moss);">An intelligent telecoms solution with integrated connectivity that improves efficiency and provides customers with control, clarity, and confidence.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Strategic Pillars</h3>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-number">Pillar 1</div>
+        <div class="pillar-title">Intelligent Products & Systems</div>
+        <div class="pillar-desc">Focusing on cost reduction and reducing administrative hours for SMEs. Machine learning-driven optimisation, proactive savings recommendations, and automated estate management.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">Pillar 2</div>
+        <div class="pillar-title">Transparent & Aligned Business Models</div>
+        <div class="pillar-desc">Driving long-term retention through models that align our success with that of our customers. Clear pricing, no hidden charges, contracts that work in the customer's favour.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">Pillar 3</div>
+        <div class="pillar-title">Circular Economy & Waste Reduction</div>
+        <div class="pillar-desc">Integrating sustainability as a core feature rather than an add-on. Refurbish and recycle at every touchpoint. Biodiversity Net Gain alongside carbon reduction.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">The Meaningful Way</h3>
+    <p class="block-text">We operate by a set of distinct trade-offs that prioritise long-term value over short-term ease. These principles should be reflected in our product decisions, our communications, and our brand voice.</p>
+
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="principle-choose">Proactive</div>
+        <div class="principle-over"><em>over Reactive</em><br>Anticipating needs before they become problems.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-choose">Simplicity</div>
+        <div class="principle-over"><em>over Complexity</em><br>Stripping away the noise of traditional telecoms.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-choose">Refurbish & Recycle</div>
+        <div class="principle-over"><em>over Replace & Waste</em><br>Prioritising the circular economy at every touchpoint.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-choose">Wider Impact</div>
+        <div class="principle-over"><em>over Carbon Only</em><br>Focusing on Biodiversity Net Gain alongside carbon reduction.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-choose">Partnership</div>
+        <div class="principle-over"><em>over Supplier Model</em><br>Building aligned, long-term relationships rather than transactional sales.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-choose">Transparency</div>
+        <div class="principle-over"><em>over Opacity</em><br>Openness in business practices and pricing.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Brand Personality</h3>
+    <div class="rules-grid" style="margin-top: 20px;">
+      <div class="rule-card do">
+        <div class="rule-label">We Are</div>
+        <div class="rule-example">
+          <strong>Clear</strong> – We communicate with precision and purpose. No jargon, no filler, no black boxes.<br><br>
+          <strong>Competent</strong> – We know telecoms. Our platform and our language reflect genuine expertise.<br><br>
+          <strong>Warm</strong> – We care about our customers and the planet, and that shows in how we treat people.<br><br>
+          <strong>Grounded</strong> – Our environmental commitments are real, measurable, and specific. We let the work speak.
+        </div>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-label">We Are Not</div>
+        <div class="rule-example">
+          <strong>Preachy</strong> – We don't lecture people about the environment or guilt them into action.<br><br>
+          <strong>Naive</strong> – We don't pretend switching to our network alone will save the world. We're honest about scale.<br><br>
+          <strong>Corporate</strong> – We don't hide behind formal language, legalese, or bureaucratic framing.<br><br>
+          <strong>Enterprise-focused</strong> – We don't speak in procurement jargon. Our customers are people running businesses, not committees.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="brand-divider">
+
+<!-- ===== 02. LOGO ===== -->
+<section class="section" id="logo">
+  <div class="section-header">
+    <div class="section-number">02</div>
+    <h2 class="section-title">Logo</h2>
+    <p class="section-subtitle">Our logo system includes the Meaningful Planet brand mark and the Milo product wordmark.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Meaningful Planet – Brand Mark</h3>
+    <p class="block-text">The Meaningful Planet mark is an organic, flowing form that evokes growth, connectivity, and the natural world. It uses two tones from our palette to create depth and movement. The mark should always be presented as a complete unit – never crop, rotate, or separate its elements.</p>
+
+    <div class="logo-grid">
+      <div class="logo-card lc-light">
+        <span class="logo-card-label">Light backgrounds</span>
+        <svg viewBox="0 0 650.68 655.06" xmlns="http://www.w3.org/2000/svg" width="180">
+          <path fill="#032D10" d="m125.66,586.42c56.07,43.3,126.38,68.95,202.65,68.64,30.27-2.66,60.89-8.32,89-18.45,27.49-9.88,52.7-24.1,72.65-44.15,26.02-26.07,37.09-51.55,36.85-72.74-.25-21.56-12.55-37.94-32.41-45.93-20.98-8.23-50.14-7.32-83.95,7.7-20.26,8.96-41.88,20.43-64.49,32.39-69.7,36.78-147.61,77.97-220.29,72.53h0Z"/>
+          <path fill="#256751" d="m273.89.24c-70.47,11.49-133.21,45.12-181.17,93.62C52.45,134.71,22.58,185.98,7.95,243.26c11.4-12.15,24.42-22.69,38.46-30.75,44.97-25.55,92.91-32.8,140.72-39.93,42.46-6.35,84.67-12.82,120.7-32.71,29.19-16.12,47.76-38.78,54.98-61.5,3.8-11.86,4.48-23.45,1.8-33.91-2.55-9.96-8.08-19.02-16.97-26.2C332.62,5.89,308.27-1.45,273.89.24h0Z"/>
+          <path fill="#032D10" d="m643.71,233.81c-15.89-54.74-45.45-103.68-84.93-142.58-43.99-43.49-100.24-74.7-163-88.06,6.28,9.19,10.7,19.38,13.38,30.08,4.84,18.79,3.84,39.11-2.53,59.08-10.53,33.08-36.52,65.51-76.52,87.79-43.48,24.05-89.8,30.92-136.24,37.91-43.46,6.6-87.16,13.08-124.67,34.6-74.25,26.22-111.42,174.72,6.96,172.93,84.85-2.35,140.29-50.52,195.97-98.94l4.84-4.26c32.61-28.35,69.84-57.47,110.21-80.5,41.49-23.66,86.38-40.87,132.97-44.24,10.59-.81,20.81-.87,30.78-.17,35.41,2.54,67.5,14.07,92.8,36.36h0Z"/>
+          <path fill="#256751" d="m568.73,549.64c46.57-50.24,86.53-123.99,81.52-194.37-2.83-37.99-14.95-65.34-33-83.18-17.8-17.6-42.15-26.8-69.45-28.64-7.98-.58-16.08-.53-24.3.01-38.99,2.84-77.41,17.76-113.56,38.4-37.39,21.4-72.25,48.64-102.88,75.35l-4.96,4.27c-61.76,53.69-123.27,107.12-224.69,109.94-18.44.48-34.4-1.3-48.38-5.21,3.41,7.21,7.06,14.42,10.96,21.25,75.32,96.4,188.76,36.44,284.43-14.2,23.73-12.47,46.47-24.56,67.35-33.78,46.12-20.45,88.11-20.94,119.71-8.4,37.22,14.87,60.84,47.88,61.19,88.13.18,9.84-1.13,19.95-3.94,30.43h0Z"/>
+        </svg>
+      </div>
+      <div class="logo-card lc-dark">
+        <span class="logo-card-label">Dark backgrounds</span>
+        <svg viewBox="0 0 650.68 655.06" xmlns="http://www.w3.org/2000/svg" width="180">
+          <path fill="#D2FF85" d="m125.66,586.42c56.07,43.3,126.38,68.95,202.65,68.64,30.27-2.66,60.89-8.32,89-18.45,27.49-9.88,52.7-24.1,72.65-44.15,26.02-26.07,37.09-51.55,36.85-72.74-.25-21.56-12.55-37.94-32.41-45.93-20.98-8.23-50.14-7.32-83.95,7.7-20.26,8.96-41.88,20.43-64.49,32.39-69.7,36.78-147.61,77.97-220.29,72.53h0Z"/>
+          <path fill="#C4F5DC" d="m273.89.24c-70.47,11.49-133.21,45.12-181.17,93.62C52.45,134.71,22.58,185.98,7.95,243.26c11.4-12.15,24.42-22.69,38.46-30.75,44.97-25.55,92.91-32.8,140.72-39.93,42.46-6.35,84.67-12.82,120.7-32.71,29.19-16.12,47.76-38.78,54.98-61.5,3.8-11.86,4.48-23.45,1.8-33.91-2.55-9.96-8.08-19.02-16.97-26.2C332.62,5.89,308.27-1.45,273.89.24h0Z"/>
+          <path fill="#D2FF85" d="m643.71,233.81c-15.89-54.74-45.45-103.68-84.93-142.58-43.99-43.49-100.24-74.7-163-88.06,6.28,9.19,10.7,19.38,13.38,30.08,4.84,18.79,3.84,39.11-2.53,59.08-10.53,33.08-36.52,65.51-76.52,87.79-43.48,24.05-89.8,30.92-136.24,37.91-43.46,6.6-87.16,13.08-124.67,34.6-74.25,26.22-111.42,174.72,6.96,172.93,84.85-2.35,140.29-50.52,195.97-98.94l4.84-4.26c32.61-28.35,69.84-57.47,110.21-80.5,41.49-23.66,86.38-40.87,132.97-44.24,10.59-.81,20.81-.87,30.78-.17,35.41,2.54,67.5,14.07,92.8,36.36h0Z"/>
+          <path fill="#C4F5DC" d="m568.73,549.64c46.57-50.24,86.53-123.99,81.52-194.37-2.83-37.99-14.95-65.34-33-83.18-17.8-17.6-42.15-26.8-69.45-28.64-7.98-.58-16.08-.53-24.3.01-38.99,2.84-77.41,17.76-113.56,38.4-37.39,21.4-72.25,48.64-102.88,75.35l-4.96,4.27c-61.76,53.69-123.27,107.12-224.69,109.94-18.44.48-34.4-1.3-48.38-5.21,3.41,7.21,7.06,14.42,10.96,21.25,75.32,96.4,188.76,36.44,284.43-14.2,23.73-12.47,46.47-24.56,67.35-33.78,46.12-20.45,88.11-20.94,119.71-8.4,37.22,14.87,60.84,47.88,61.19,88.13.18,9.84-1.13,19.95-3.94,30.43h0Z"/>
+        </svg>
+      </div>
+      <div class="logo-card lc-chalk">
+        <span class="logo-card-label">Mono – Black</span>
+        <svg viewBox="0 0 650.68 655.06" xmlns="http://www.w3.org/2000/svg" width="180">
+          <path fill="#000" d="m125.66,586.42c56.07,43.3,126.38,68.95,202.65,68.64,30.27-2.66,60.89-8.32,89-18.45,27.49-9.88,52.7-24.1,72.65-44.15,26.02-26.07,37.09-51.55,36.85-72.74-.25-21.56-12.55-37.94-32.41-45.93-20.98-8.23-50.14-7.32-83.95,7.7-20.26,8.96-41.88,20.43-64.49,32.39-69.7,36.78-147.61,77.97-220.29,72.53h0Z"/>
+          <path fill="#000" d="m273.89.24c-70.47,11.49-133.21,45.12-181.17,93.62C52.45,134.71,22.58,185.98,7.95,243.26c11.4-12.15,24.42-22.69,38.46-30.75,44.97-25.55,92.91-32.8,140.72-39.93,42.46-6.35,84.67-12.82,120.7-32.71,29.19-16.12,47.76-38.78,54.98-61.5,3.8-11.86,4.48-23.45,1.8-33.91-2.55-9.96-8.08-19.02-16.97-26.2C332.62,5.89,308.27-1.45,273.89.24h0Z"/>
+          <path fill="#000" d="m643.71,233.81c-15.89-54.74-45.45-103.68-84.93-142.58-43.99-43.49-100.24-74.7-163-88.06,6.28,9.19,10.7,19.38,13.38,30.08,4.84,18.79,3.84,39.11-2.53,59.08-10.53,33.08-36.52,65.51-76.52,87.79-43.48,24.05-89.8,30.92-136.24,37.91-43.46,6.6-87.16,13.08-124.67,34.6-74.25,26.22-111.42,174.72,6.96,172.93,84.85-2.35,140.29-50.52,195.97-98.94l4.84-4.26c32.61-28.35,69.84-57.47,110.21-80.5,41.49-23.66,86.38-40.87,132.97-44.24,10.59-.81,20.81-.87,30.78-.17,35.41,2.54,67.5,14.07,92.8,36.36h0Z"/>
+          <path fill="#000" d="m568.73,549.64c46.57-50.24,86.53-123.99,81.52-194.37-2.83-37.99-14.95-65.34-33-83.18-17.8-17.6-42.15-26.8-69.45-28.64-7.98-.58-16.08-.53-24.3.01-38.99,2.84-77.41,17.76-113.56,38.4-37.39,21.4-72.25,48.64-102.88,75.35l-4.96,4.27c-61.76,53.69-123.27,107.12-224.69,109.94-18.44.48-34.4-1.3-48.38-5.21,3.41,7.21,7.06,14.42,10.96,21.25,75.32,96.4,188.76,36.44,284.43-14.2,23.73-12.47,46.47-24.56,67.35-33.78,46.12-20.45,88.11-20.94,119.71-8.4,37.22,14.87,60.84,47.88,61.19,88.13.18,9.84-1.13,19.95-3.94,30.43h0Z"/>
+        </svg>
+      </div>
+      <div class="logo-card lc-grove">
+        <span class="logo-card-label">Mono – White</span>
+        <svg viewBox="0 0 650.68 655.06" xmlns="http://www.w3.org/2000/svg" width="180">
+          <path fill="#FFF" d="m125.66,586.42c56.07,43.3,126.38,68.95,202.65,68.64,30.27-2.66,60.89-8.32,89-18.45,27.49-9.88,52.7-24.1,72.65-44.15,26.02-26.07,37.09-51.55,36.85-72.74-.25-21.56-12.55-37.94-32.41-45.93-20.98-8.23-50.14-7.32-83.95,7.7-20.26,8.96-41.88,20.43-64.49,32.39-69.7,36.78-147.61,77.97-220.29,72.53h0Z"/>
+          <path fill="#FFF" d="m273.89.24c-70.47,11.49-133.21,45.12-181.17,93.62C52.45,134.71,22.58,185.98,7.95,243.26c11.4-12.15,24.42-22.69,38.46-30.75,44.97-25.55,92.91-32.8,140.72-39.93,42.46-6.35,84.67-12.82,120.7-32.71,29.19-16.12,47.76-38.78,54.98-61.5,3.8-11.86,4.48-23.45,1.8-33.91-2.55-9.96-8.08-19.02-16.97-26.2C332.62,5.89,308.27-1.45,273.89.24h0Z"/>
+          <path fill="#FFF" d="m643.71,233.81c-15.89-54.74-45.45-103.68-84.93-142.58-43.99-43.49-100.24-74.7-163-88.06,6.28,9.19,10.7,19.38,13.38,30.08,4.84,18.79,3.84,39.11-2.53,59.08-10.53,33.08-36.52,65.51-76.52,87.79-43.48,24.05-89.8,30.92-136.24,37.91-43.46,6.6-87.16,13.08-124.67,34.6-74.25,26.22-111.42,174.72,6.96,172.93,84.85-2.35,140.29-50.52,195.97-98.94l4.84-4.26c32.61-28.35,69.84-57.47,110.21-80.5,41.49-23.66,86.38-40.87,132.97-44.24,10.59-.81,20.81-.87,30.78-.17,35.41,2.54,67.5,14.07,92.8,36.36h0Z"/>
+          <path fill="#FFF" d="m568.73,549.64c46.57-50.24,86.53-123.99,81.52-194.37-2.83-37.99-14.95-65.34-33-83.18-17.8-17.6-42.15-26.8-69.45-28.64-7.98-.58-16.08-.53-24.3.01-38.99,2.84-77.41,17.76-113.56,38.4-37.39,21.4-72.25,48.64-102.88,75.35l-4.96,4.27c-61.76,53.69-123.27,107.12-224.69,109.94-18.44.48-34.4-1.3-48.38-5.21,3.41,7.21,7.06,14.42,10.96,21.25,75.32,96.4,188.76,36.44,284.43-14.2,23.73-12.47,46.47-24.56,67.35-33.78,46.12-20.45,88.11-20.94,119.71-8.4,37.22,14.87,60.84,47.88,61.19,88.13.18,9.84-1.13,19.95-3.94,30.43h0Z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Clear Space and Minimum Size</h3>
+    <p class="block-text">Maintain clear space around the logo equal to at least the height of one "leaf" element within the mark. Minimum reproduction size: 32px height on screen, 12mm in print.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Logo Misuse</h3>
+    <div class="rules-grid">
+      <div class="rule-card dont">
+        <div class="rule-label">Do Not</div>
+        <div class="rule-example">
+          Rotate, skew, or distort the mark<br><br>
+          Apply drop shadows, glows, or 3D effects<br><br>
+          Place on busy photographic backgrounds without a solid container<br><br>
+          Change the colours to anything outside the approved variants<br><br>
+          Separate or rearrange the mark's elements<br><br>
+          Add outlines or strokes to the mark
+        </div>
+      </div>
+      <div class="rule-card do">
+        <div class="rule-label">Always</div>
+        <div class="rule-example">
+          Use the correct variant for the background<br><br>
+          Maintain the clear space zone<br><br>
+          Use the provided SVG or PNG files – never recreate the mark<br><br>
+          Ensure sufficient contrast between the mark and its background
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Milo – Product Wordmark</h3>
+    <p class="block-text">Milo is the name of the SIM management platform. Its wordmark features the leaf-circle icon alongside the "MILO" logotype. Use within the product (sidebar, favicon) and on product-specific materials. It should not replace the Meaningful Planet brand mark on corporate or marketing materials.</p>
+    <div class="callout">
+      <strong>When to use which:</strong> Meaningful Planet mark for the website, emails, partner materials, and all external-facing brand contexts. Milo wordmark within the platform itself and on product-specific documentation.
+    </div>
+  </div>
+</section>
+
+<hr class="brand-divider">
+
+<!-- ===== 03. COLOUR ===== -->
+<section class="section" id="colour">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Colour Palette</h2>
+    <p class="section-subtitle">Our colours are drawn from the natural world – deep forest greens, fresh growth, warm earth, and soft morning light.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Core Palette</h3>
+    <div class="colour-grid">
+      <div class="colour-card">
+        <div class="colour-swatch" style="background: #032D10;"></div>
+        <div class="colour-info">
+          <div class="colour-name">Moss</div>
+          <div class="colour-hex">#032D10</div>
+          <div class="colour-usage">Primary dark. Headlines, headers, primary buttons, dark backgrounds.</div>
+        </div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background: #256751;"></div>
+        <div class="colour-info">
+          <div class="colour-name">Pine</div>
+          <div class="colour-hex">#256751</div>
+          <div class="colour-usage">Secondary green. Accents, links, secondary UI elements, logo alternate.</div>
+        </div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background: #D2FF85;"></div>
+        <div class="colour-info">
+          <div class="colour-name">Sapling</div>
+          <div class="colour-hex">#D2FF85</div>
+          <div class="colour-usage">Accent highlight. CTA buttons on dark backgrounds, emphasis, data vis.</div>
+        </div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background: #C4F5DC;"></div>
+        <div class="colour-info">
+          <div class="colour-name">Mist</div>
+          <div class="colour-hex">#C4F5DC</div>
+          <div class="colour-usage">Light accent. Stat cards, badges, info panels, subtle highlights.</div>
+        </div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background: #F8F3EC;"></div>
+        <div class="colour-info">
+          <div class="colour-name">Chalk</div>
+          <div class="colour-hex">#F8F3EC</div>
+          <div class="colour-usage">Warm neutral. Email and page backgrounds, feature cards, alternating sections.</div>
+        </div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background: #D98042;"></div>
+        <div class="colour-info">
+          <div class="colour-name">Clay</div>
+          <div class="colour-hex">#D98042</div>
+          <div class="colour-usage">Warm accent. Warnings, attention states, differentiator. Use sparingly.</div>
+        </div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background: #021B11;"></div>
+        <div class="colour-info">
+          <div class="colour-name">Grove</div>
+          <div class="colour-hex">#021B11</div>
+          <div class="colour-usage">Deepest dark. Footers, overlays, maximum contrast backgrounds.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Colour Roles by Context</h3>
+    <table class="roles-table">
+      <thead>
+        <tr><th>Context</th><th>Background</th><th>Text</th><th>Accent / CTA</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Website hero</strong></td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss with nature photography overlay</td>
+          <td>White (headings), soft green (subtitles)</td>
+          <td><span class="swatch-inline" style="background:#D2FF85;"></span>Sapling + <span class="swatch-inline" style="background:#032D10;"></span>Moss buttons</td>
+        </tr>
+        <tr>
+          <td><strong>Website body sections</strong></td>
+          <td><span class="swatch-inline" style="background:#FFFFFF;"></span>White alternating with <span class="swatch-inline" style="background:#F8F3EC;"></span>Chalk</td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss headings, #3A3A3A body</td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss or <span class="swatch-inline" style="background:#256751;"></span>Pine</td>
+        </tr>
+        <tr>
+          <td><strong>Website feature sections</strong></td>
+          <td><span class="swatch-inline" style="background:#D2FF85;"></span>Sapling (full-width highlight)</td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss</td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss buttons</td>
+        </tr>
+        <tr>
+          <td><strong>Website impact banner</strong></td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss with nature photography</td>
+          <td>White, Mist</td>
+          <td><span class="swatch-inline" style="background:#D2FF85;"></span>Sapling</td>
+        </tr>
+        <tr>
+          <td><strong>Email header</strong></td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss</td>
+          <td>White (headlines), Mist (subtitles)</td>
+          <td><span class="swatch-inline" style="background:#D2FF85;"></span>Sapling buttons</td>
+        </tr>
+        <tr>
+          <td><strong>Email body</strong></td>
+          <td><span class="swatch-inline" style="background:#FFFFFF;"></span>White on <span class="swatch-inline" style="background:#F8F3EC;"></span>Chalk</td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss headings, #3A3A3A body</td>
+          <td><span class="swatch-inline" style="background:#032D10;"></span>Moss buttons</td>
+        </tr>
+        <tr>
+          <td><strong>Milo platform</strong></td>
+          <td>Gray-50 / White (current Tailwind system)</td>
+          <td>Standard gray scale</td>
+          <td>Emerald-600 (migration to brand palette TBD)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Brand Gradients</h3>
+    <p class="block-text">Subtle linear gradients are used as accent lines and dividers – never as large background fills.</p>
+    <div style="margin-top: 24px;">
+      <p style="font-size: 13px; font-weight: 600; color: var(--moss); margin-bottom: 4px;">Header accent</p>
+      <div class="gradient-strip" style="background: linear-gradient(90deg, #256751 0%, #D2FF85 50%, #256751 100%);"></div>
+      <p style="font-size: 12px; color: var(--muted-text);">Pine → Sapling → Pine. Top of emails, website nav, section accents.</p>
+
+      <p style="font-size: 13px; font-weight: 600; color: var(--moss); margin-bottom: 4px; margin-top: 20px;">Content divider</p>
+      <div class="gradient-strip" style="height: 2px; background: linear-gradient(90deg, #E8E2D8 0%, #C4F5DC 50%, #E8E2D8 100%);"></div>
+      <p style="font-size: 12px; color: var(--muted-text);">Warm neutral → Mist → Warm neutral. Content dividers within email body.</p>
+
+      <p style="font-size: 13px; font-weight: 600; color: var(--moss); margin-bottom: 4px; margin-top: 20px;">Card top accent</p>
+      <div class="gradient-strip" style="background: linear-gradient(90deg, #256751 0%, #D2FF85 100%);"></div>
+      <p style="font-size: 12px; color: var(--muted-text);">Pine → Sapling. Card top borders for emphasis.</p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Colour Don'ts</h3>
+    <div class="rules-grid">
+      <div class="rule-card dont">
+        <div class="rule-label">Avoid</div>
+        <div class="rule-example">
+          Sapling on white/light backgrounds as text (fails contrast)<br><br>
+          Mist or Chalk as text colours<br><br>
+          Clay and Sapling in close proximity (clashing warmth)<br><br>
+          Using colours outside this palette for brand materials<br><br>
+          Full-colour gradient backgrounds on large areas
+        </div>
+      </div>
+      <div class="rule-card do">
+        <div class="rule-label">Best Practice</div>
+        <div class="rule-example">
+          Sapling for CTAs and emphasis on Moss/Grove backgrounds<br><br>
+          Mist for light backgrounds and subtle containers<br><br>
+          Chalk as the primary warm neutral background<br><br>
+          Clay very sparingly – attention states or rare accent only<br><br>
+          Moss for text and Pine for secondary text on light backgrounds
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="brand-divider">
+
+<!-- ===== 04. TYPOGRAPHY ===== -->
+<section class="section" id="typography">
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <h2 class="section-title">Typography</h2>
+    <p class="section-subtitle">Our type system pairs Figtree as the primary workhorse with a serif display face for website headlines.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Primary Typeface: Figtree</h3>
+    <p class="block-text">Figtree is a geometric sans-serif from Google Fonts. It pairs a friendly, open feel with professional clarity. Use Figtree for all digital materials – platform UI, emails, website body text, and marketing collateral.</p>
+
+    <div class="callout" style="margin-top: 16px;">
+      <strong>Font stack:</strong> <code style="font-size: 13px; color: var(--moss);">font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;</code>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-label">Figtree – Alphabet</div>
+      <div class="type-display" style="font-size: 28px; font-weight: 400; letter-spacing: 0.06em; line-height: 1.6;">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+        abcdefghijklmnopqrstuvwxyz<br>
+        0123456789 &amp; £ $ € % @ #
+      </div>
+
+      <div class="type-label" style="margin-top: 36px;">Weight Scale</div>
+      <div style="display: grid; gap: 12px;">
+        <div class="type-display" style="font-size: 24px; font-weight: 300;">Light 300 – Available but rarely used</div>
+        <div class="type-display" style="font-size: 24px; font-weight: 400;">Regular 400 – Body text, descriptions</div>
+        <div class="type-display" style="font-size: 24px; font-weight: 500;">Medium 500 – Form labels, nav items, emphasis</div>
+        <div class="type-display" style="font-size: 24px; font-weight: 600;">Semibold 600 – Sub-headings, button text, badges</div>
+        <div class="type-display" style="font-size: 24px; font-weight: 700;">Bold 700 – Headings, key values, strong emphasis</div>
+        <div class="type-display" style="font-size: 24px; font-weight: 800;">Extrabold 800 – Hero headlines, brand statements</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Display Typeface: Serif (Website Only)</h3>
+    <p class="block-text">The new website design introduces a serif display typeface for high-impact headlines and marketing statements. This serif face is used selectively for major page headings and pull quotes – it adds editorial warmth and distinction while Figtree handles everything else.</p>
+
+    <div class="type-specimen">
+      <div class="type-label">Serif – Display Usage</div>
+      <div style="font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-size: 36px; color: var(--moss); line-height: 1.3; margin-bottom: 16px;">
+        What Your Business Mobile<br>Provider Should Deliver
+      </div>
+      <div style="font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-size: 28px; color: var(--moss); line-height: 1.35; font-style: italic;">
+        One platform. Total control of your mobile estate.
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 20px;">
+      <strong>Serif usage rules:</strong> The serif display face is reserved for the marketing website only – specifically for H1-level hero headlines, major section headings, and occasional pull quotes. It must never be used in the Milo platform UI, transactional emails, or documentation. The exact serif typeface should be confirmed with the design team and documented here once the website build is finalised.
+    </div>
+
+    <div class="rules-grid" style="margin-top: 20px;">
+      <div class="rule-card do">
+        <div class="rule-label">Where to Use Serif</div>
+        <div class="rule-example">
+          Website hero headlines<br><br>
+          Major marketing section headings (e.g., "What Your Business Mobile Provider Should Deliver")<br><br>
+          Pull quotes and testimonial callouts<br><br>
+          "What our customers say" section headings
+        </div>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-label">Never Use Serif</div>
+        <div class="rule-example">
+          Milo platform headings or UI text<br><br>
+          Transactional emails<br><br>
+          Button labels, nav items, or form labels<br><br>
+          Body text anywhere<br><br>
+          Documentation or help articles
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Type Scale</h3>
+    <div class="type-scale">
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <strong>Website hero headline</strong>
+          36–48px / Serif or Figtree 800<br>
+          Letter-spacing: -0.02em
+        </div>
+        <div style="font-size: 32px; font-weight: 800; color: var(--moss); letter-spacing: -0.02em; line-height: 1.2;">Smarter business mobile. Managed from one intelligent platform.</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <strong>Email hero headline</strong>
+          26px / Figtree 700
+        </div>
+        <div style="font-size: 26px; font-weight: 700; color: var(--moss); line-height: 1.28;">Your business mobile account is ready.</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <strong>Section heading (H2)</strong>
+          19–22px / Figtree 700
+        </div>
+        <div class="type-display" style="font-size: 22px; font-weight: 700;">What Happens Next?</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <strong>Sub-heading (H3)</strong>
+          16–18px / 600–700
+        </div>
+        <div class="type-display" style="font-size: 17px; font-weight: 600;">SIM Card Information</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <strong>Body text</strong>
+          14–16px / 400<br>
+          Line-height: 1.65
+        </div>
+        <div style="font-size: 15px; font-weight: 400; line-height: 1.65; color: var(--body-text);">Your organisation has added you to Meaningful Planet as a business mobile user. Activate your account now to access your SIM and get connected.</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <strong>Caption / label</strong>
+          11–12px / 500–600<br>
+          Letter-spacing: 0.06–0.08em
+        </div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pine);">Action Required</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <strong>Button / CTA</strong>
+          13–15px / 600–700
+        </div>
+        <div><span class="btn-specimen btn-accent" style="display:inline-flex;">Activate Account →</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="brand-divider">
+
+<!-- ===== 05. VOICE & TONE ===== -->
+<section class="section" id="voice">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <h2 class="section-title">Voice &amp; Tone</h2>
+    <p class="section-subtitle">How we sound. Our voice is consistent; our tone adapts to context.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Brand Voice</h3>
+    <p class="block-text">Meaningful Planet's voice is <strong>clear, competent, and human</strong>. We deal with an industry known for black-box billing, jargon, and complexity. Our job is to make telecoms management feel manageable – not hidden or dumbed down.</p>
+
+    <div class="rules-grid" style="margin-top: 20px; grid-template-columns: repeat(3, 1fr);">
+      <div class="rule-card do" style="text-align: center; padding: 32px 24px;">
+        <div style="font-size: 32px; margin-bottom: 12px;">🎯</div>
+        <div class="rule-label" style="margin-bottom: 8px;">Direct</div>
+        <div class="rule-example" style="font-size: 13px;">Say what you mean. No filler, no hedging, no jargon. Radical clarity is part of our DNA.</div>
+      </div>
+      <div class="rule-card do" style="text-align: center; padding: 32px 24px;">
+        <div style="font-size: 32px; margin-bottom: 12px;">💡</div>
+        <div class="rule-label" style="margin-bottom: 8px;">Helpful</div>
+        <div class="rule-example" style="font-size: 13px;">Anticipate what the user needs next. Be proactive – guide, don't just inform.</div>
+      </div>
+      <div class="rule-card do" style="text-align: center; padding: 32px 24px;">
+        <div style="font-size: 32px; margin-bottom: 12px;">🌿</div>
+        <div class="rule-label" style="margin-bottom: 8px;">Calm</div>
+        <div class="rule-example" style="font-size: 13px;">Composed and solution-oriented. Even in errors and alerts, always in control.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Messaging Themes</h3>
+    <p class="block-text">These themes recur across the website, emails, and product. They reflect our strategic pillars and should be used consistently when framing what we do.</p>
+    <div class="rules-grid" style="margin-top: 16px;">
+      <div class="rule-card do" style="border-top-color: var(--sapling);">
+        <div class="rule-label" style="color: var(--moss);">Clarity Over Complexity</div>
+        <div class="rule-example" style="font-size: 13px;">
+          "Full visibility. Real impact."<br>
+          "Business mobile shouldn't be a black box."<br>
+          "Three signs your mobile setup is holding you back."<br>
+          "Complete visibility and control."
+        </div>
+      </div>
+      <div class="rule-card do" style="border-top-color: var(--sapling);">
+        <div class="rule-label" style="color: var(--moss);">Intelligent & Proactive</div>
+        <div class="rule-example" style="font-size: 13px;">
+          "Managed from one intelligent platform."<br>
+          "Intelligent spend optimisation."<br>
+          "Proactive savings recommendations."<br>
+          "Built to save your team time."
+        </div>
+      </div>
+      <div class="rule-card do" style="border-top-color: var(--sapling);">
+        <div class="rule-label" style="color: var(--moss);">Impact as Standard</div>
+        <div class="rule-example" style="font-size: 13px;">
+          "Impact built into every connection."<br>
+          "Restoration in every connection."<br>
+          "Connected to something bigger."<br>
+          "Real impact, not just promises."
+        </div>
+      </div>
+      <div class="rule-card do" style="border-top-color: var(--sapling);">
+        <div class="rule-label" style="color: var(--moss);">Simplicity & Control</div>
+        <div class="rule-example" style="font-size: 13px;">
+          "Switching is simpler than you think."<br>
+          "One platform. Total control of your mobile estate."<br>
+          "Take control of your mobile estate."<br>
+          "Zero guesswork."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Tone by Context</h3>
+    <table class="roles-table">
+      <thead><tr><th>Context</th><th>Tone</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Website hero</td><td>Confident, benefit-led</td><td>"Smarter business mobile. Full visibility. Real impact."</td></tr>
+        <tr><td>Website body</td><td>Informative, warm</td><td>"We combine mobile network, management platform, and sustainability into one service."</td></tr>
+        <tr><td>Platform dashboard</td><td>Informative, concise</td><td>"3 SIMs are approaching their data limit."</td></tr>
+        <tr><td>Success states</td><td>Confirming, brief</td><td>"SIM activated."</td></tr>
+        <tr><td>Errors</td><td>Calm, solution-focused</td><td>"We couldn't process that request. Check your details and try again."</td></tr>
+        <tr><td>Empty states</td><td>Encouraging, guiding</td><td>"No support tickets yet. Create a ticket if you need help."</td></tr>
+        <tr><td>Confirmation dialogs</td><td>Clear, consequential</td><td>"Suspending this SIM will immediately stop all data and voice services."</td></tr>
+        <tr><td>Emails (transactional)</td><td>Professional, efficient</td><td>"Your business mobile account is ready."</td></tr>
+        <tr><td>Social proof</td><td>Grounded, evidence-based</td><td>"Control of your estate. Clarity in your spend. Confidence in the switch."</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Words and Phrases to Avoid</h3>
+    <table class="roles-table">
+      <thead><tr><th>Avoid</th><th>Use Instead</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>"Enterprise-grade"</td><td>"Professional" or "business-grade"</td><td>We serve SMEs, not enterprises. Avoid enterprise framing externally.</td></tr>
+        <tr><td>"Please be advised that..."</td><td>Just state it</td><td>Corporate filler</td></tr>
+        <tr><td>"Successfully"</td><td>Remove it – "SIM activated." is enough</td><td>Redundant</td></tr>
+        <tr><td>"Oops!" / "Uh oh!"</td><td>"Something went wrong" or be specific</td><td>Unprofessional for B2B</td></tr>
+        <tr><td>"Click here"</td><td>Describe the action: "View invoices"</td><td>Inaccessible and vague</td></tr>
+        <tr><td>"Simple" / "easy"</td><td>Describe the actual benefit</td><td>Patronising if it isn't actually simple</td></tr>
+        <tr><td>"Just"</td><td>Remove it</td><td>Minimises the instruction</td></tr>
+        <tr><td>"Utilize"</td><td>"Use"</td><td>Always</td></tr>
+        <tr><td>"Eco-friendly"</td><td>Be specific: "carbon-neutral", "funds nature restoration"</td><td>Vague greenwashing risk</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="brand-divider">
+
+<!-- ===== 06. COPY RULES ===== -->
+<section class="section" id="copy">
+  <div class="section-header">
+    <div class="section-number">06</div>
+    <h2 class="section-title">Copy Rules</h2>
+    <p class="section-subtitle">Capitalisation, punctuation, and formatting rules across every touchpoint.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Capitalisation</h3>
+    <div class="example-pair">
+      <div class="example-card">
+        <div class="example-visual" style="background: var(--subtle-bg);">
+          <div style="text-align: left; width: 100%; padding: 0 12px;">
+            <div style="font-size: 22px; font-weight: 700; color: var(--moss);">SIM Management</div>
+            <div style="font-size: 13px; color: var(--muted-text); margin-top: 6px;">Manage and monitor all SIM cards across your account.</div>
+          </div>
+        </div>
+        <div class="example-caption">
+          <strong class="do-label">✓ Correct</strong>
+          Title case for the heading. Sentence case for the description.
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-visual" style="background: var(--subtle-bg);">
+          <div style="text-align: left; width: 100%; padding: 0 12px;">
+            <div style="font-size: 22px; font-weight: 700; color: var(--moss);">Sim management</div>
+            <div style="font-size: 13px; color: var(--muted-text); margin-top: 6px;">Manage And Monitor All SIM Cards Across Your Account.</div>
+          </div>
+        </div>
+        <div class="example-caption">
+          <strong class="dont-label">✗ Incorrect</strong>
+          Heading not title-cased. Description incorrectly title-cased with full stop.
+        </div>
+      </div>
+    </div>
+
+    <h3 class="block-title" style="margin-top: 40px;">Quick Reference</h3>
+    <table class="ref-table">
+      <thead><tr><th>Element</th><th>Case</th><th>Full Stop?</th><th>Ampersand?</th></tr></thead>
+      <tbody>
+        <tr><td>Page title (H1)</td><td>Title case</td><td>No</td><td>Yes, paired concepts</td></tr>
+        <tr><td>Section heading (H2)</td><td>Title case</td><td>No</td><td>Yes, paired concepts</td></tr>
+        <tr><td>Navigation item</td><td>Title case</td><td>No</td><td>Yes</td></tr>
+        <tr><td>Button / CTA</td><td>Title case</td><td>No</td><td>No – use "and"</td></tr>
+        <tr><td>Column header</td><td>Title case</td><td>No</td><td>No</td></tr>
+        <tr><td>Tab label</td><td>Title case</td><td>No</td><td>Yes, paired concepts</td></tr>
+        <tr><td>Form label</td><td>Sentence case</td><td>No</td><td>No</td></tr>
+        <tr><td>Placeholder text</td><td>Sentence case</td><td>No</td><td>No</td></tr>
+        <tr><td>Page description</td><td>Sentence case</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Tooltip / help text</td><td>Sentence case</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Error message</td><td>Sentence case</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Empty state</td><td>Sentence case</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Status badge</td><td>Sentence case</td><td>No</td><td>No</td></tr>
+        <tr><td>Email subject line</td><td>Title case</td><td>No</td><td>No</td></tr>
+        <tr><td>Email body</td><td>Sentence case</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Website headline</td><td>Title case</td><td>No (period OK for effect)</td><td>Yes, paired concepts</td></tr>
+        <tr><td>Website body</td><td>Sentence case</td><td>Yes</td><td>No</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">British English</h3>
+    <p class="block-text">All Meaningful Planet copy uses British English exclusively, across every channel – platform, website, emails, documentation, and marketing materials.</p>
+
+    <table class="ref-table" style="margin-top: 20px;">
+      <thead><tr><th>Rule</th><th>British (Correct)</th><th>American (Do Not Use)</th></tr></thead>
+      <tbody>
+        <tr><td>-ise endings</td><td>customise, optimise, recognise</td><td>customize, optimize, recognize</td></tr>
+        <tr><td>-our endings</td><td>colour, behaviour, favour</td><td>color, behavior, favor</td></tr>
+        <tr><td>-re endings</td><td>centre, metre, fibre</td><td>center, meter, fiber</td></tr>
+        <tr><td>-ogue endings</td><td>catalogue, dialogue</td><td>catalog, dialog</td></tr>
+        <tr><td>Double L before suffixes</td><td>travelling, cancelled, modelling</td><td>traveling, canceled, modeling</td></tr>
+        <tr><td>Dates</td><td>1 January 2026</td><td>January 1, 2026</td></tr>
+        <tr><td>Quotation marks</td><td>Single primary: 'Hello'</td><td>Double primary: "Hello"</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top: 20px;">
+      <strong>AI-generated copy:</strong> When using AI tools to draft copy, always specify British English and review output carefully. US spellings are the most common error in AI-generated content. Check every '-ize', '-or', and '-er' ending.
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Key Punctuation Rules</h3>
+    <div class="rules-grid">
+      <div class="rule-card do">
+        <div class="rule-label">Do</div>
+        <div class="rule-example">
+          Use the Oxford comma: "SIMs, subscriptions, and invoices"<br><br>
+          Use contractions in UI and web copy: "You can't suspend a terminated SIM"<br><br>
+          Use curly (smart) quotes and apostrophes<br><br>
+          Use en dash (–) for ranges: "100–1,500 SIMs"<br><br>
+          Use en dash with spaces for parenthetical asides where commas would be ambiguous: "Our platform – built for SMEs – gives you full control"<br><br>
+          End all complete sentences with full stops in descriptions, tooltips, and body text<br><br>
+          Periods in website hero headings are acceptable as a stylistic choice (e.g., "Full visibility. Real impact.")
+        </div>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-label">Do Not</div>
+        <div class="rule-example">
+          Use full stops on buttons, nav items, badges, or column headers<br><br>
+          Use ALL CAPS anywhere – for emphasis, use font weight<br><br>
+          Use em dashes (—) anywhere – we exclusively use en dashes (–) or commas<br><br>
+          Use ampersands in body text or button labels<br><br>
+          Use purely numeric date formats (01/01/2026) – use "1 January 2026"<br><br>
+          Use US English spellings – British English only<br><br>
+          Use exclamation marks in UI copy (rare exceptions in marketing, very sparingly)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Standard Terminology</h3>
+    <table class="ref-table">
+      <thead><tr><th>Preferred Term</th><th>Do Not Use</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SIM</strong></td><td>SIM card (after first mention)</td><td>"SIM" is sufficient after first use</td></tr>
+        <tr><td><strong>eSIM</strong></td><td>e-SIM, ESIM, E-SIM</td><td>Always lowercase e, uppercase SIM</td></tr>
+        <tr><td><strong>SIM estate</strong></td><td>SIM fleet, SIM pool</td><td>Our standard term for a customer's collection</td></tr>
+        <tr><td><strong>Mobile estate</strong></td><td>Mobile fleet, phone estate</td><td>Used on the website for the broader concept</td></tr>
+        <tr><td><strong>Subscription</strong></td><td>Plan, package, bundle</td><td>For the billing entity; "data plan" for the tier only</td></tr>
+        <tr><td><strong>Activate</strong></td><td>Turn on, enable, provision</td><td>For SIM activation</td></tr>
+        <tr><td><strong>Suspend</strong></td><td>Pause, disable, deactivate</td><td>For temporarily stopping service</td></tr>
+        <tr><td><strong>Reactivate</strong></td><td>Resume, unsuspend, re-enable</td><td>For restoring a suspended SIM</td></tr>
+        <tr><td><strong>Terminate</strong></td><td>Cancel, delete, decommission</td><td>For permanent removal from service</td></tr>
+        <tr><td><strong>Support ticket</strong></td><td>Case, request, issue</td><td>Consistent across platform and comms</td></tr>
+        <tr><td><strong>Dashboard</strong></td><td>Home, overview, landing page</td><td>For the main summary view</td></tr>
+        <tr><td><strong>Nature restoration</strong></td><td>Offsetting (on its own), tree planting</td><td>We fund broader restoration, not just offsets. Be specific.</td></tr>
+        <tr><td><strong>Wildlife Trusts</strong></td><td>Environmental partners, charity partners</td><td>Name them. They're our partners.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="brand-divider">
+
+<!-- ===== 07. WEBSITE PATTERNS ===== -->
+<section class="section" id="website">
+  <div class="section-header">
+    <div class="section-number">07</div>
+    <h2 class="section-title">Website Design Patterns</h2>
+    <p class="section-subtitle">Established patterns from the new website design. Use these as the reference when creating additional pages or sections.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Page Structure</h3>
+    <p class="block-text">Website pages follow a consistent rhythm of alternating section backgrounds to create visual hierarchy and breathing room. The pattern is: Moss hero → White content → Chalk/Sapling feature → White content → Moss impact → White content → Chalk CTA footer.</p>
+
+    <div style="display: grid; gap: 4px; margin-top: 24px; border-radius: 14px; overflow: hidden; border: 1px solid var(--light-border);">
+      <div style="background: var(--moss); padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--white); font-size: 13px; font-weight: 600;">Hero – Moss + nature photography</span>
+        <span style="color: var(--mist); font-size: 11px;">Nav bar, headline, subtitle, dual CTAs, trust logos</span>
+      </div>
+      <div style="background: var(--white); padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--moss); font-size: 13px; font-weight: 600;">Content – White</span>
+        <span style="color: var(--muted-text); font-size: 11px;">Problem statement, value props, feature cards</span>
+      </div>
+      <div style="background: var(--sapling); padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--moss); font-size: 13px; font-weight: 600;">Feature highlight – Sapling</span>
+        <span style="color: var(--pine); font-size: 11px;">Key differentiators, comparison stats, product demo</span>
+      </div>
+      <div style="background: var(--white); padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--moss); font-size: 13px; font-weight: 600;">Content – White</span>
+        <span style="color: var(--muted-text); font-size: 11px;">Solutions grid, problem checklist, detailed features</span>
+      </div>
+      <div style="background: var(--moss); padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--white); font-size: 13px; font-weight: 600;">Impact banner – Moss + photography</span>
+        <span style="color: var(--mist); font-size: 11px;">Restoration stats, Wildlife Trust partnership</span>
+      </div>
+      <div style="background: var(--chalk); padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--moss); font-size: 13px; font-weight: 600;">Social proof – Chalk</span>
+        <span style="color: var(--muted-text); font-size: 11px;">Testimonial cards, customer quotes</span>
+      </div>
+      <div style="background: var(--white); padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--moss); font-size: 13px; font-weight: 600;">CTA footer – White</span>
+        <span style="color: var(--muted-text); font-size: 11px;">Final call-to-action, supporting icons, dual buttons</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Key Section Patterns</h3>
+
+    <div class="pattern-grid">
+      <div class="pattern-card">
+        <div class="pattern-preview" style="background: var(--moss); flex-direction: column; gap: 8px; padding: 32px;">
+          <div style="font-size: 20px; font-weight: 800; color: var(--white); text-align: center; line-height: 1.3;">Smarter business mobile.<br><span style="font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic;">Full visibility. Real impact.</span></div>
+          <div style="display: flex; gap: 8px; margin-top: 8px;">
+            <span class="btn-specimen btn-accent" style="font-size: 12px; padding: 8px 16px;">Get a Tailored Quote</span>
+            <span class="btn-specimen btn-secondary" style="font-size: 12px; padding: 8px 16px; background: transparent; color: var(--white); border-color: rgba(255,255,255,0.3);">See MILO in Action</span>
+          </div>
+        </div>
+        <div class="pattern-info">
+          <div class="pattern-name">Hero Section</div>
+          <div class="pattern-desc">Moss background with nature photography overlay. Mixed typography: Figtree extrabold + serif italic. Dual CTA buttons: Sapling primary + ghost secondary. Trust logos bar below.</div>
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-preview" style="background: var(--sapling); flex-direction: column; gap: 12px;">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--moss); text-align: center; line-height: 1.3;">What Your Business Mobile<br>Provider Should Deliver</div>
+          <div style="display: flex; gap: 8px;">
+            <div style="background: var(--white); border-radius: 8px; padding: 12px 16px; width: 100px; text-align: center;">
+              <div style="font-size: 8px; color: var(--pine); font-weight: 600;">✓</div>
+              <div style="font-size: 9px; color: var(--moss); font-weight: 600;">Visibility</div>
+            </div>
+            <div style="background: var(--white); border-radius: 8px; padding: 12px 16px; width: 100px; text-align: center;">
+              <div style="font-size: 8px; color: var(--pine); font-weight: 600;">✓</div>
+              <div style="font-size: 9px; color: var(--moss); font-weight: 600;">Cost certainty</div>
+            </div>
+            <div style="background: var(--white); border-radius: 8px; padding: 12px 16px; width: 100px; text-align: center;">
+              <div style="font-size: 8px; color: var(--pine); font-weight: 600;">✓</div>
+              <div style="font-size: 9px; color: var(--moss); font-weight: 600;">Zero disruption</div>
+            </div>
+          </div>
+        </div>
+        <div class="pattern-info">
+          <div class="pattern-name">Sapling Feature Section</div>
+          <div class="pattern-desc">Full-width Sapling background. Serif heading. White cards with icons for value propositions. Chart/data visualisation elements. Used for key differentiators.</div>
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-preview" style="background: var(--white); flex-direction: column; gap: 6px;">
+          <div style="background: var(--moss); color: var(--sapling); font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 4px; display: inline-block;">SWITCHING PROCESS</div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--moss); text-align: center;">Switching is simpler than you think</div>
+          <div style="display: flex; gap: 16px; margin-top: 8px;">
+            <div style="text-align: center;">
+              <div style="width: 28px; height: 28px; background: var(--sapling); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--moss); margin: 0 auto 4px;">1</div>
+              <div style="font-size: 9px; color: var(--muted-text);">We scope your estate</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 28px; height: 28px; background: var(--sapling); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--moss); margin: 0 auto 4px;">2</div>
+              <div style="font-size: 9px; color: var(--muted-text);">Activate and onboard</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 28px; height: 28px; background: var(--sapling); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--moss); margin: 0 auto 4px;">3</div>
+              <div style="font-size: 9px; color: var(--muted-text);">You get full control</div>
+            </div>
+          </div>
+        </div>
+        <div class="pattern-info">
+          <div class="pattern-name">Stepped Process</div>
+          <div class="pattern-desc">Numbered steps with Sapling circles on white/Moss background. Used for switching journey, onboarding flows, and "how it works" sections. Category pill label above heading.</div>
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-preview" style="background: var(--chalk); flex-direction: column; gap: 8px;">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--moss); text-align: center;">What our customers say</div>
+          <div style="display: flex; gap: 8px;">
+            <div style="background: var(--white); border-radius: 8px; padding: 12px; flex: 1; border: 1px solid var(--light-border);">
+              <div style="font-size: 16px; color: var(--pine); margin-bottom: 4px;">❝</div>
+              <div style="font-size: 9px; color: var(--body-text); line-height: 1.4;">Amazing clarity and control over our mobile spend...</div>
+              <div style="font-size: 8px; color: var(--muted-text); margin-top: 6px;">— Operations Manager</div>
+            </div>
+            <div style="background: var(--white); border-radius: 8px; padding: 12px; flex: 1; border: 1px solid var(--light-border);">
+              <div style="font-size: 16px; color: var(--pine); margin-bottom: 4px;">❝</div>
+              <div style="font-size: 9px; color: var(--body-text); line-height: 1.4;">Switching was seamless and the platform is brilliant...</div>
+              <div style="font-size: 8px; color: var(--muted-text); margin-top: 6px;">— IT Lead</div>
+            </div>
+          </div>
+        </div>
+        <div class="pattern-info">
+          <div class="pattern-name">Testimonials / Social Proof</div>
+          <div class="pattern-desc">Serif heading. White cards on Chalk background with quote marks. Include role/company. May include star ratings and a "Control, Clarity, Confidence" tagline above.</div>
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-preview" style="background: var(--moss); flex-direction: column; gap: 8px; padding: 24px;">
+          <div style="font-size: 14px; font-weight: 700; color: var(--white); text-align: center;">Impact built into every connection.</div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <div style="background: rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 12px; text-align: center; flex: 1;">
+              <div style="font-size: 14px; font-weight: 700; color: var(--sapling);">10,000+</div>
+              <div style="font-size: 8px; color: var(--mist);">acres restored</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 12px; text-align: center; flex: 1;">
+              <div style="font-size: 14px; font-weight: 700; color: var(--sapling);">1,000+</div>
+              <div style="font-size: 8px; color: var(--mist);">hectares</div>
+            </div>
+          </div>
+        </div>
+        <div class="pattern-info">
+          <div class="pattern-name">Impact / Restoration Banner</div>
+          <div class="pattern-desc">Moss background with nature photography. Stat cards with Sapling values. Links to "Learn more about our impact". May include Wildlife Trust logo.</div>
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-preview" style="background: var(--white); flex-direction: column; gap: 8px;">
+          <div style="font-size: 16px; font-weight: 700; color: var(--moss); text-align: center;">Ready to get more from your business mobile?</div>
+          <div style="display: flex; gap: 8px; justify-content: center; margin-top: 4px;">
+            <span class="btn-specimen btn-accent" style="font-size: 11px; padding: 6px 14px;">Get a Tailored Quote</span>
+            <span class="btn-specimen btn-secondary" style="font-size: 11px; padding: 6px 14px;">Book a Demo</span>
+          </div>
+          <div style="display: flex; gap: 20px; justify-content: center; margin-top: 8px;">
+            <div style="text-align: center;">
+              <div style="font-size: 9px; font-weight: 600; color: var(--pine);">✓</div>
+              <div style="font-size: 8px; color: var(--muted-text);">Best-in-class UK coverage</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 9px; font-weight: 600; color: var(--pine);">✓</div>
+              <div style="font-size: 8px; color: var(--muted-text);">Intelligent SIM control</div>
+            </div>
+          </div>
+        </div>
+        <div class="pattern-info">
+          <div class="pattern-name">CTA Footer Section</div>
+          <div class="pattern-desc">Centred heading, dual buttons (Sapling primary + outline secondary), trust indicators below. Appears near the bottom of every page as the final conversion point.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Website Navigation</h3>
+    <p class="block-text">The main navigation uses the Moss background with white Figtree text. Primary sections visible in the nav: Home, Business, Personal, Coverage, Our Impact, About, Login. The Meaningful Planet brand mark sits at the left. Navigation items are title case, Figtree medium weight.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Website Buttons</h3>
+    <p class="block-text">Website CTAs follow a dual-button pattern: a primary action (Sapling or Moss filled) alongside a secondary action (outline/ghost). This gives users a clear primary path while offering alternatives.</p>
+    <div style="margin-top: 20px;">
+      <div style="font-size: 13px; font-weight: 600; color: var(--pine); margin-bottom: 12px;">On light backgrounds</div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <span class="btn-specimen btn-accent">Get a Tailored Quote →</span>
+        <span class="btn-specimen btn-secondary">Book a Demo</span>
+        <span class="btn-specimen btn-primary">See MILO in Action →</span>
+      </div>
+      <div style="font-size: 13px; font-weight: 600; color: var(--pine); margin-bottom: 12px; margin-top: 24px;">On dark backgrounds</div>
+      <div style="background: var(--moss); border-radius: 12px; padding: 24px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <span class="btn-specimen btn-accent">Get a Tailored Quote →</span>
+        <span class="btn-specimen" style="background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); border-radius: 8px;">See MILO in Action</span>
+      </div>
+    </div>
+    <div class="callout" style="margin-top: 20px;">
+      <strong>Arrow convention:</strong> The primary CTA uses a trailing arrow (→) to suggest forward momentum. Secondary/exploratory CTAs do not include the arrow. The arrow character is a Unicode right arrow (→), not a greater-than sign (>).
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Trust Signals</h3>
+    <p class="block-text">The website includes a social proof logo bar below the hero showing customer/partner logos. These are displayed in a muted, single-tone treatment (grayscale or Pine-tinted) so they don't compete with the brand palette. The bar may include a label like "Trusted by businesses across the UK".</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Photography Direction</h3>
+    <p class="block-text">Website photography falls into two categories: nature/restoration imagery (used in hero sections and impact banners – forests, peatlands, wildlife, real project sites) and workplace imagery (used in feature sections – real teams, real offices, natural and unstaged). Avoid generic stock photography of handshakes, posed teams, or manicured nature scenes. All photography should use a natural, slightly warm colour grade that complements the Chalk and Moss palette.</p>
+  </div>
+</section>
+
+<hr class="brand-divider">
+
+<!-- ===== 08. APPLICATIONS ===== -->
+<section class="section" id="applications">
+  <div class="section-header">
+    <div class="section-number">08</div>
+    <h2 class="section-title">Applications</h2>
+    <p class="section-subtitle">How the brand system is applied across emails, the Milo platform, partner materials, and more.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Email Templates</h3>
+    <p class="block-text">Transactional and notification emails follow a consistent structure:</p>
+
+    <div style="background: var(--white); border: 1px solid var(--light-border); border-radius: 14px; padding: 32px; margin-top: 20px;">
+      <div style="font-size: 13px; font-weight: 600; color: var(--pine); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Email anatomy</div>
+      <div style="display: grid; gap: 12px;">
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <div style="width: 120px; height: 40px; background: var(--moss); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div style="height: 3px; width: 80%; background: linear-gradient(90deg, var(--pine), var(--sapling), var(--pine)); border-radius: 2px;"></div>
+          </div>
+          <div style="font-size: 13px;"><strong>Header:</strong> Moss background, gradient accent, logo + category label, H1 in white</div>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <div style="width: 120px; height: 40px; background: var(--white); border: 1px solid var(--light-border); border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 70%; height: 3px; background: linear-gradient(90deg, var(--pine), var(--sapling)); border-radius: 2px;"></div>
+          </div>
+          <div style="font-size: 13px;"><strong>Action card:</strong> Gradient top border, category label, CTA button</div>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <div style="width: 120px; height: 40px; background: var(--mist); border-radius: 6px; flex-shrink: 0;"></div>
+          <div style="font-size: 13px;"><strong>Stat cards:</strong> Mist background, 3-column, values in Moss bold</div>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <div style="width: 120px; height: 40px; background: var(--moss); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div style="padding: 4px 16px; background: var(--sapling); border-radius: 4px; font-size: 10px; font-weight: 700; color: var(--moss);">CTA</div>
+          </div>
+          <div style="font-size: 13px;"><strong>Final CTA:</strong> Moss card, Sapling button, reinforces primary action</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 24px;">
+      <strong>Email button styles:</strong> Sapling (#D2FF85) with Moss text on dark sections. Moss with white text in white sections. Always <code>border-radius: 8px</code>, <code>font-weight: 600–700</code>, and include the arrow: "Activate Account →"
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Milo Platform</h3>
+    <p class="block-text">The Milo platform currently uses a Tailwind-based design system (emerald scale, gray-50 backgrounds) that predates the formalised brand palette. The copy rules, Figtree typography, and voice/tone guidelines apply to Milo immediately. Colour palette migration is a separate workstream.</p>
+    <div class="callout callout-warning">
+      <strong>Migration note:</strong> Do not force brand colours into the existing Tailwind system without a coordinated migration plan. Copy, typography, and voice changes can and should be applied independently and immediately.
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Partner and Co-Brand Materials</h3>
+    <p class="block-text">When creating materials alongside partner brands, use the Meaningful Planet mark on white or Chalk backgrounds. Keep our palette neutral – Pine for accents rather than the full palette – to avoid visual competition. Partner logos should be given equal or greater visual weight. The Wildlife Trusts should be referenced by name in any sustainability-related materials.</p>
+  </div>
+
+  <div class="content-block">
+    <h3 class="block-title">Social Media</h3>
+    <p class="block-text">Social media graphics use the Moss/Sapling combination for maximum recognition. Profile images use the Meaningful Planet mark (colour on light variant). Use Figtree for text overlays. Maintain the brand voice – professional but human, never corporate-speak or hashtag-stuffed.</p>
+  </div>
+</section>
+
+<hr class="brand-divider">
+
+<!-- FOOTER -->
+<footer class="brand-footer">
+  <p style="margin-bottom: 16px; font-size: 14px; color: var(--mist);">Meaningful Planet – Brand Guidelines v1.1</p>
+  <p>February 2026 · This is a living document.<br>Flag inconsistencies, propose additions, and challenge anything that doesn't serve our customers or our brand.</p>
+</footer>
+
+</body>
+</html>

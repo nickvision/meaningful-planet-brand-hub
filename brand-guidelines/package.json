@@ -1,0 +1,14 @@
+{
+  "name": "meaningful-planet-brand-guidelines",
+  "version": "1.1.0",
+  "description": "Meaningful Planet brand guidelines – visual identity, voice, copy rules, and application standards",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
